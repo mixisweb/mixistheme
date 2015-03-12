@@ -57,6 +57,57 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/********************************************/
+
 /*
-End of reset
-********************************************/
+Fontello icon
+***************************/
+@font-face {
+  font-family: 'fontello';
+  src: url('font/fontello.eot');
+  src: url('font/fontello.eot') format('embedded-opentype'),
+       url('font/fontello.woff') format('woff'),
+       url('font/fontello.ttf') format('truetype'),
+       url('font/fontello.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before,
+[class^="icon-"]:after, [class*=" icon-"]:after {
+	font-family: "fontello";
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	speak: none; 
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	margin-right: .2em;
+	color: #fff;
+}
+
+.icon-vkontakte:before { content: '\e800'; }
+.icon-facebook:before { content: '\e801'; }
+.icon-gplus:before { content: '\e802'; }
+.icon-linkedin:before { content: '\e803'; }
+.icon-youtube:before { content: '\e805'; }
+.icon-wordpress:before { content: '\e806'; }
+.icon-git:before { content: '\e807'; }
+.icon-mail:before { content: '\e808'; }
+.icon-link:before { content: '\e809'; }
+.icon-comment-empty:before { content: '\e80a'; }
+.icon-angle-right:before { content: '\e80b'; }
+.icon-angle-left:before { content: '\e80c'; }
+.icon-file-pdf:before { content: '\e80d'; }
+.icon-file-word:before { content: '\e80e'; }
+.icon-file-excel:before { content: '\e80f'; }
+.icon-doc-text:before { content: '\e810'; }
+.icon-twitter:before { content: '\e811'; }
+/********************************************/
+

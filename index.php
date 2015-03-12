@@ -1,5 +1,6 @@
 <?php get_header();?>
 		<section class="content">
+			<?php get_sidebar('left'); ?>
 			<section class="content-area">
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					<article  id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -23,6 +24,6 @@
 				<?php endwhile;?>
 				<?php endif;?>
 			</section>
+			<?php get_sidebar('right'); ?>
 		</section>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -113,4 +113,19 @@ function remove_more_jump_link($link) {
 }
 add_filter('the_content_more_link', 'remove_more_jump_link');
 
+
+/*====== Edit THE_EXCERPT ======*/
+function custom_excerpt_filter($excerpt) {
+	$excerpt='<p>'.preg_replace( '/\[[^\]]+\]/', '',get_the_excerpt()).'</p>';
+	return $excerpt;
+}
+add_filter('the_excerpt', 'custom_excerpt_filter', 11);
+
+
+/*====== Edit READMORE link in THE_EXCERPT ======*/
+function new_excerpt_more( $more ) {
+	return ' <a class="more-link" href="'. get_permalink( get_the_ID() ) . '"><span>' . __('Read more', THEME_SLUG) . '</span></a>';
+}
+add_filter( 'excerpt_more', 'new_excerpt_more' );
+
 ?>

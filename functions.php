@@ -1,5 +1,9 @@
 <?php
 define('THEME_SLUG', 'mixistheme');
+if ( ! isset( $content_width ) ) $content_width = 960;
+if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	wp_enqueue_script( 'comment-reply' );
+}
 
 /* ====== Add theme support options ====== */
 add_theme_support('automatic-feed-links');

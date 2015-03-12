@@ -93,4 +93,24 @@ function register_theme_widgets(){
 	));
 }
 add_action( 'widgets_init', 'register_theme_widgets' );
+
+
+/* ====== Register breadcrumbs ====== */
+include ('breadcrumbs.php');
+
+
+/* ====== Remove # from more-link ====== */
+function remove_more_jump_link($link) {
+	$offset = strpos($link, '#more-');
+	if ($offset) {
+		$end = strpos($link, '"',$offset);
+	}
+	if ($end) {
+		$link = substr_replace($link, '', $offset, $end-$offset);
+		//$link = str_replace('more-link','more-link rmrh-show-more',$link);
+	}
+	return $link;
+}
+add_filter('the_content_more_link', 'remove_more_jump_link');
+
 ?>

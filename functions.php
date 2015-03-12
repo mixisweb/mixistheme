@@ -45,4 +45,12 @@ function rename_upfile($filename, $filename_raw) {
 	return $new;
 }
 add_filter('sanitize_file_name', 'rename_upfile', 10, 2);
+
+/* ====== Register menu ====== */
+register_nav_menus(array(
+'top'    =>__('Top menu', 'Mixis Theme'),
+'main' => __('Main menu', 'Mixis Theme'),
+'footer' => __('Footer col1', 'Mixis Theme'),
+));
+
 ?>

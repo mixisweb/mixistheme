@@ -128,4 +128,56 @@ function new_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'new_excerpt_more' );
 
+
+/*====== Category pagination ======*/
+function post_pagination_digits() {
+	global $wp_query;
+	$pages = '';
+	$max = $wp_query->max_num_pages;
+	if (!$current = get_query_var('paged')) $current = 1;
+	$a['base'] = str_replace(999999999, '%#%', get_pagenum_link(999999999));
+	$a['total'] = $max;
+	$a['current'] = $current;
+
+	$total = 1;
+	$a['mid_size'] = 3;
+	$a['end_size'] = 1;
+	$a['prev_text'] = '&laquo;';
+	$a['next_text'] = '&raquo;';
+
+	if ($max > 1) echo '<div class="navigation">';
+	echo $pages . paginate_links($a);
+	if ($max > 1) echo '</div>';
+}
+
+
+/*====== Child Pages ======*/
+function child_pages() {
+	$output="";
+	global $post;
+	//Request child pages
+	$args = array(
+			'post_parent' => $post->ID,
+			'post_type' => 'page',
+			'orderby' => 'menu_order',
+			'order' => 'ASC',
+			'post__not_in' => array()
+	);
+	$subpages = new WP_query($args);
+	// Make data
+	if ($subpages->have_posts()) :
+	$output = '<div id="child-pages">';
+	while ($subpages->have_posts()) : $subpages->the_post();
+	global $more;
+	$output .= '
+				<div class="child-one">
+					<a href="'.get_permalink().'">'.get_the_post_thumbnail($post->ID,'thumbnail').'</a>
+					<a href="'.get_permalink().'" class="child-one-title">'.get_the_title().'</a>
+				</div>';
+	endwhile;
+	$output .="</div>";
+	endif;
+	wp_reset_postdata();
+	echo $output;
+}
 ?>

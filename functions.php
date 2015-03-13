@@ -13,7 +13,7 @@ add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', '
 
 /* ====== Register javascripts and jquery ====== */
 function setup_theme_scripts() {
-	wp_enqueue_style( 'main', get_template_directory_uri() . '/css/style.css', null, null );
+	wp_enqueue_style( 'main', get_template_directory_uri() . '/style.css', null, null );
 	wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/theme.js', array('jquery'), null, true );
 	wp_enqueue_script( 'jquery' );
 }

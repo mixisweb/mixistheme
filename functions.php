@@ -68,7 +68,7 @@ add_filter('sanitize_file_name', 'rename_upfile', 10, 2);
 register_nav_menus(array(
 	'top'	=> __('Top menu', THEME_SLUG),
 	'main'	=> __('Main menu', THEME_SLUG),
-	'footer'=> __('Footer col1', THEME_SLUG),
+	'footer'=> __('Footer', THEME_SLUG),
 ));
 
 

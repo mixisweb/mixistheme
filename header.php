@@ -18,6 +18,9 @@
                 <div class="col-2"></div>
 				<div class="col-3"></div>
 			</div>
+			<div class="slider">
+              <?php echo get_new_royalslider(1); ?>
+            </div>
 		</header><!-- end site-header -->
 		<?php if ( has_nav_menu( 'main') ):?>
 			<nav class="main-menu">

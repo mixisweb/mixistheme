@@ -54,8 +54,7 @@ function rename_upfile($filename, $filename_raw) {
 	$info	= pathinfo($filename);
 	$ext	= empty($info['extension']) ? '' : '.' . $info['extension'];
 	$date	= date('Y-m-d-H-i-s');
-	$domain	= '';
-	$new 	= $domain.'-'.$date.$ext;
+	$new 	= $date.$ext;
 	if( $new != $filename_raw ) {
 		$new = sanitize_file_name( $new );
 	}
